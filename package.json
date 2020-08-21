@@ -1,0 +1,77 @@
+{
+  "name": "hyperdrive-daemon-client",
+  "version": "1.14.3",
+  "description": "A client library and CLI tool for interacting with the Hyperdrive daemon.",
+  "main": "index.js",
+  "bin": {
+    "hyperdrive": "./bin/run/run"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/build.js && scripts/rewrite_imports.sh"
+  },
+  "files": [
+    "index.js",
+    "bin/",
+    "scripts/",
+    "lib/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewosh/hyperdrive-daemon-client.git"
+  },
+  "keywords": [
+    "hyperdrive",
+    "daemon",
+    "client"
+  ],
+  "author": "Andrew Osheroff <andrewosh@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewosh/hyperdrive-daemon-client/issues"
+  },
+  "homepage": "https://github.com/andrewosh/hyperdrive-daemon-client#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^0.5.1",
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.14.0",
+    "@oclif/plugin-autocomplete": "^0.1.5",
+    "@oclif/plugin-help": "^2.2.3",
+    "call-me-maybe": "^1.0.1",
+    "cli-progress": "^3.4.0",
+    "codecs": "^2.0.0",
+    "dat-encoding": "^5.0.1",
+    "fs-extended-attributes": "^1.0.1",
+    "fs-extra": "^8.0.1",
+    "globby": "^11.0.0",
+    "google-protobuf": "^3.8.0",
+    "hyperdrive-schemas": "^1.9.0",
+    "last-one-wins": "^1.0.4",
+    "mirror-folder": "^3.0.1",
+    "ora": "^4.0.3",
+    "protocol-buffers-encodings": "^1.1.0",
+    "pumpify": "^2.0.0",
+    "stream-collector": "^1.0.1",
+    "streamx": "^2.6.0",
+    "through2-map": "^3.0.0"
+  },
+  "devDependencies": {
+    "grpc-tools": "^1.7.3"
+  },
+  "oclif": {
+    "commands": "./bin/commands",
+    "bin": "hyperdrive",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-autocomplete"
+    ],
+    "topics": {
+      "debug": {
+        "description": "Assorted debugging commands"
+      },
+      "cleanup": {
+        "description": "Commands for deleting drives and clearing disk space"
+      }
+    }
+  }
+}
