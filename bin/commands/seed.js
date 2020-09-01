@@ -6,7 +6,7 @@ const DaemonCommand = require('../../lib/cli')
 
 class SeedCommand extends DaemonCommand {
   static usage = 'seed [path]'
-  static description = 'Seed a Hyperdrive on the network.'
+  static description = 'Seed a DDrive on the network.'
   static args = [
     DaemonCommand.drivePathArg({
       required: false,
@@ -18,7 +18,7 @@ class SeedCommand extends DaemonCommand {
       description: 'The drive key to seed (will override the provided path)'
     }),
     root: flags.boolean({
-      description: 'Make your root drive (at ~/Hyperdrive) available to the network',
+      description: 'Make your root drive (at ~/DDrive) available to the network',
       default: false
     }),
     announce: flags.boolean({

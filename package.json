@@ -1,10 +1,10 @@
 {
-  "name": "hyperdrive-daemon-client",
-  "version": "1.15.2",
-  "description": "A client library and CLI tool for interacting with the Hyperdrive daemon.",
+  "name": "ddrive-daemon-client",
+  "version": "2.0.0",
+  "description": "A client library and CLI tool for interacting with the DDrive daemon.",
   "main": "index.js",
   "bin": {
-    "hyperdrive": "./bin/run/run"
+    "ddrive": "./bin/run/run"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,19 +18,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrewosh/hyperdrive-daemon-client.git"
+    "url": "git+https://github.com/andrewosh/ddrive-daemon-client.git"
   },
   "keywords": [
-    "hyperdrive",
+    "ddrive",
     "daemon",
     "client"
   ],
   "author": "Andrew Osheroff <andrewosh@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andrewosh/hyperdrive-daemon-client/issues"
+    "url": "https://github.com/andrewosh/ddrive-daemon-client/issues"
   },
-  "homepage": "https://github.com/andrewosh/hyperdrive-daemon-client#readme",
+  "homepage": "https://github.com/andrewosh/ddrive-daemon-client#readme",
   "dependencies": {
     "@grpc/grpc-js": "^0.5.1",
     "@oclif/command": "^1.5.19",
@@ -41,10 +41,10 @@
     "call-me-maybe": "^1.0.1",
     "cli-progress": "^3.4.0",
     "codecs": "^2.0.0",
-    "dat-encoding": "^5.0.1",
+    "dwebx-encoding": "git://github.com/DistributedWeb/dwebx-encoding.git#adbab1965b1152c3a7252ca01807e9744c713398",
     "globby": "^11.0.0",
     "google-protobuf": "^3.8.0",
-    "hyperdrive-schemas": "^1.9.0",
+    "ddrive-schemas": "git://github.com/DistributedWeb/ddrive-schemas.git#c39ebb6103163a56179cd3f48ced282f9edf15c5",
     "last-one-wins": "^1.0.4",
     "mirror-folder": "^3.0.1",
     "ora": "^4.0.3",
@@ -60,7 +60,7 @@
   },
   "oclif": {
     "commands": "./bin/commands",
-    "bin": "hyperdrive",
+    "bin": "ddrive",
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-autocomplete"

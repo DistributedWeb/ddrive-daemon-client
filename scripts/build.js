@@ -1,6 +1,6 @@
 const p = require('path')
 const { execSync } = require('child_process')
-const { hyperdriveSchemaPath, daemonSchemaPaths } = require('hyperdrive-schemas')
+const { hyperdriveSchemaPath, daemonSchemaPaths } = require('ddrive-schemas')
 
 // The complete path must be converted into a protoc search directory.
 const hyperdriveSchemaDir = p.dirname(hyperdriveSchemaPath)

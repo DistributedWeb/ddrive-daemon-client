@@ -10,7 +10,7 @@ class MountCommand extends DaemonCommand {
   static args = [
     DaemonCommand.drivePathArg({
       required: true,
-      description: 'The path where the drive will be mounted (must be within ~/Hyperdrive)'
+      description: 'The path where the drive will be mounted (must be within ~/DDrive)'
     }),
     DaemonCommand.keyArg({
       description: 'The key of the drive that will be mounted (a new drive will be created if blank)'
@@ -22,7 +22,7 @@ class MountCommand extends DaemonCommand {
       required: false
     }),
     seed: flags.boolean({
-      description: 'Seed the new drive on the Hyperdrive network (false by default for mounts)',
+      description: 'Seed the new drive on the DDrive network (false by default for mounts)',
       required: false,
       default: false
     })
@@ -53,7 +53,7 @@ class MountCommand extends DaemonCommand {
       console.log(`  Seeding: ${seeding}`)
       if (!seeding) {
         console.log()
-        console.log(`This drive is private by default. To publish it, run \`hyperdrive seed ${path}\``)
+        console.log(`This drive is private by default. To publish it, run \`ddrive seed ${path}\``)
       }
     } catch (err) {
       spinner.fail('Could not mount the drive:')

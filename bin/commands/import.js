@@ -8,12 +8,12 @@ const { flags } = require('@oclif/command')
 const DaemonCommand = require('../../lib/cli')
 const { HyperdriveClient } = require('../..')
 
-const IMPORT_KEY_FILE_PATH = '.hyperdrive-import-key'
-const EXPORT_KEY_FILE_PATH = '.hyperdrive-export-key'
+const IMPORT_KEY_FILE_PATH = '.ddrive-import-key'
+const EXPORT_KEY_FILE_PATH = '.ddrive-export-key'
 
 class ImportCommand extends DaemonCommand {
   static usage = 'import [dir] [key]'
-  static description = 'Continuously import a directory into a Hyperdrive.'
+  static description = 'Continuously import a directory into a DDrive.'
   static args = [
     {
       name: 'dir',
@@ -31,7 +31,7 @@ class ImportCommand extends DaemonCommand {
   ]
   static flags = {
     'no-seed': flags.boolean({
-      description: 'Do not seed the new drive on the Hyperdrive network',
+      description: 'Do not seed the new drive on the DDrive network',
       default: false
     })
   }

@@ -8,7 +8,7 @@ class UnmountCommand extends DaemonCommand {
   static description = 'Unmount a drive. The root drive will be unmounted if a mountpoint is not specified.'
   static args = [
     DaemonCommand.drivePathArg({
-      description: 'The path to the drive to unmount (must be within ~/Hyperdrive)',
+      description: 'The path to the drive to unmount (must be within ~/DDrive)',
       required: true
     })
   ]

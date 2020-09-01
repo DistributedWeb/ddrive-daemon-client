@@ -12,7 +12,7 @@ const { flags } = require('@oclif/command')
 const DaemonCommand = require('../../lib/cli')
 const { HyperdriveClient } = require('../..')
 
-const KEY_FILE_PATH = '.hyperdrive-export-key'
+const KEY_FILE_PATH = '.ddrive-export-key'
 
 class DriveWatcher extends EventEmitter {
   constructor (client, drive, opts = {}) {
@@ -111,7 +111,7 @@ class DriveWatcher extends EventEmitter {
 
 class ExportCommand extends DaemonCommand {
   static usage = 'export [key] [dir]'
-  static description = 'Continuously export a Hyperdrive into a directory.'
+  static description = 'Continuously export a DDrive into a directory.'
   static args = [
     DaemonCommand.keyArg({
       description: 'The drive key.',

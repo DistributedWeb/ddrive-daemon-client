@@ -10,12 +10,12 @@ class CreateCommand extends DaemonCommand {
   static args = [
     DaemonCommand.drivePathArg({
       required: false,
-      description: 'The path to the location in ~/Hyperdrive where your new drive will be created'
+      description: 'The path to the location in ~/DDrive where your new drive will be created'
     })
   ]
   static flags = {
     'no-seed': flags.boolean({
-      description: 'Do not seed the new drive on the Hyperdrive network',
+      description: 'Do not seed the new drive on the DDrive network',
       default: false
     })
   }
@@ -41,7 +41,7 @@ class CreateCommand extends DaemonCommand {
       console.log(`  Seeding: ${seeding}`)
       if (!seeding) {
         console.log()
-        console.log(`This drive not being announced by default. To announce it on the DHT, run \`hyperdrive seed ${args.path}\``)
+        console.log(`This drive not being announced by default. To announce it on the DHT, run \`ddrive seed ${args.path}\``)
       }
     } catch (err) {
       spinner.fail('Could not create the drive:')

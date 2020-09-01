@@ -8,7 +8,7 @@ const HOUR = MINUTE * 60
 const DAY = HOUR * 24
 
 class StatusCommand extends Command {
-  static description = 'Check the status of the Hyperdrive daemon.'
+  static description = 'Check the status of the DDrive daemon.'
   static usage = 'status'
 
   async run () {
@@ -16,15 +16,15 @@ class StatusCommand extends Command {
       const client = new HyperdriveClient()
       await client.ready()
       const status = await client.status()
-      console.log(`The Hyperdrive daemon is running:`)
+      console.log(`The DDrive daemon is running:`)
       console.log()
       console.log(`  API Version:             ${status.apiVersion}`)
       console.log(`  Daemon Version:          ${status.daemonVersion}`)
       console.log(`  Client Version:          ${status.clientVersion}`)
       console.log(`  Schema Version:          ${status.schemaVersion}`)
-      console.log(`  Hyperdrive Version:      ${status.hyperdriveVersion}`)
+      console.log(`  DDrive Version:      ${status.hyperdriveVersion}`)
       console.log(`  Fuse Native Version:     ${status.fuseNativeVersion}`)
-      console.log(`  Hyperdrive Fuse Version: ${status.hyperdriveFuseVersion}`)
+      console.log(`  DDrive Fuse Version: ${status.hyperdriveFuseVersion}`)
       console.log()
       console.log(`  Holepunchable:           ${status.holepunchable}`)
       console.log(`  Remote Address:          ${status.remoteAddress}`)
@@ -35,7 +35,7 @@ class StatusCommand extends Command {
       console.log(`  Uptime:                  ${runningTime(status.uptime)}`)
     } catch (err) {
       if (err.disconnected) {
-        console.error('The Hyperdrive daemon is not running.')
+        console.error('The DDrive daemon is not running.')
       } else {
         console.error(`Could not get the daemon status:`)
         console.error(`${err.details || err}`)
