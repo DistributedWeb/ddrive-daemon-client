@@ -1,6 +1,6 @@
 const grpc = require('@grpc/grpc-js')
 const maybe = require('call-me-maybe')
-const { version: apiVersion } = require('hyperdrive-schemas')
+const { version: apiVersion } = require('ddrive-schemas')
 
 const rpc = require('./lib/rpc')
 const DriveClient = require('./lib/clients/drive')

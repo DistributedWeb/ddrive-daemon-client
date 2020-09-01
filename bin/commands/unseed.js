@@ -4,8 +4,8 @@ const ora = require('ora')
 const DaemonCommand = require('../../lib/cli')
 
 class UnseedCommand extends DaemonCommand {
-  static usage = 'unseed ~/Hyperdrive/my/drive'
-  static description = 'Stop seeding a Hyperdrive.'
+  static usage = 'unseed ~/DDrive/my/drive'
+  static description = 'Stop seeding a DDrive.'
   static args = [
     DaemonCommand.drivePathArg({
       required: false,

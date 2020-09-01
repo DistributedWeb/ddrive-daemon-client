@@ -16,7 +16,7 @@ class DebugRemoveReadonlyDrivesCommand extends Command {
       const client = new HyperdriveClient()
       await client.ready()
       await client.status()
-      console.error('The Hyperdrive *must* not be running')
+      console.error('The DDrive *must* not be running')
     } catch (err) {
       cleanup()
     }
