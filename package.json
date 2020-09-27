@@ -1,0 +1,76 @@
+{
+  "name": "ddrive-daemon-client",
+  "version": "3.0.0",
+  "description": "A client library and CLI tool for interacting with the DDrive daemon.",
+  "main": "index.js",
+  "bin": {
+    "ddrive": "./bin/run/run"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/build.js && scripts/rewrite_imports.sh"
+  },
+  "files": [
+    "index.js",
+    "bin/",
+    "scripts/",
+    "lib/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewosh/ddrive-daemon-client.git"
+  },
+  "keywords": [
+    "ddrive",
+    "daemon",
+    "client"
+  ],
+  "author": "Andrew Osheroff <andrewosh@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewosh/ddrive-daemon-client/issues"
+  },
+  "homepage": "https://github.com/andrewosh/ddrive-daemon-client#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^0.5.1",
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.14.0",
+    "@oclif/errors": "^1.2.2",
+    "@oclif/plugin-autocomplete": "^0.1.5",
+    "@oclif/plugin-help": "^2.2.3",
+    "call-me-maybe": "^1.0.1",
+    "cli-progress": "^3.4.0",
+    "codecs": "^2.0.0",
+    "dwebx-encoding": "^5.0.1",
+    "globby": "^11.0.0",
+    "google-protobuf": "^3.8.0",
+    "ddrive-schemas": "^1.9.0",
+    "last-one-wins": "^1.0.4",
+    "mirror-folder": "^3.0.1",
+    "ora": "^4.0.3",
+    "protocol-buffers-encodings": "^1.1.0",
+    "pump": "^3.0.0",
+    "pumpify": "^2.0.0",
+    "stream-collector": "^1.0.1",
+    "streamx": "^2.6.0"
+  },
+  "devDependencies": {
+    "grpc-tools": "^1.8.1"
+  },
+  "oclif": {
+    "commands": "./bin/commands",
+    "bin": "ddrive",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-autocomplete"
+    ],
+    "topics": {
+      "debug": {
+        "description": "Assorted debugging commands"
+      },
+      "cleanup": {
+        "description": "Commands for deleting drives and clearing disk space"
+      }
+    }
+  }
+}
