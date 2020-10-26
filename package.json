@@ -1,7 +1,7 @@
 {
   "name": "ddrive-daemon-client",
   "version": "3.0.0",
-  "description": "A client library and CLI tool for interacting with the DDrive daemon.",
+  "description": "Node.js client for interacting with dDrive Daemon's gRPC API.",
   "main": "index.js",
   "bin": {
     "ddrive": "./bin/run/run"
@@ -18,19 +18,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrewosh/ddrive-daemon-client.git"
+    "url": "git+https://github.com/distributedweb/ddrive-daemon-client.git"
   },
   "keywords": [
     "ddrive",
     "daemon",
     "client"
   ],
-  "author": "Andrew Osheroff <andrewosh@gmail.com>",
+  "author": "Peeps Labs <peepslabs@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andrewosh/ddrive-daemon-client/issues"
+    "url": "https://github.com/distributedweb/ddrive-daemon-client/issues"
   },
-  "homepage": "https://github.com/andrewosh/ddrive-daemon-client#readme",
+  "homepage": "https://github.com/distributedweb/ddrive-daemon-client#readme",
   "dependencies": {
     "@grpc/grpc-js": "^0.5.1",
     "@oclif/command": "^1.5.19",
