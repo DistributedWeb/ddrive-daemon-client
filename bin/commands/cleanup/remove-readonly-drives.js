@@ -3,7 +3,7 @@ const path = require('path')
 const { Command } = require('@oclif/command')
 
 const { storage } = require('../../../lib/constants')
-const { HyperdriveClient } = require('../../..')
+const { DDriveClient } = require('../../..')
 
 class DebugRemoveReadonlyDrivesCommand extends Command {
   static usage = 'remove-readonly-drives'
@@ -13,7 +13,7 @@ class DebugRemoveReadonlyDrivesCommand extends Command {
     const self = this
 
     try {
-      const client = new HyperdriveClient()
+      const client = new DDriveClient()
       await client.ready()
       await client.status()
       console.error('The DDrive *must* not be running')

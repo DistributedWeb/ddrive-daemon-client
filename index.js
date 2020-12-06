@@ -60,7 +60,7 @@ class MainClient {
     this.debug = new DebugClient(this.endpoint, this.token)
     this.peers = new PeersClient(this.endpoint, this.token)
 
-    this._client = new services.HyperdriveClient(this.endpoint, grpc.credentials.createInsecure())
+    this._client = new services.DDriveClient(this.endpoint, grpc.credentials.createInsecure())
     // TODO: Determine how long to wait for connection.
     return new Promise((resolve, reject) => {
       this._client.waitForReady(Date.now() + (this.opts.connectionTimeout || 500), err => {
@@ -125,7 +125,7 @@ class MainClient {
 }
 
 module.exports = {
-  HyperdriveClient: MainClient,
+  DDriveClient: MainClient,
   rpc,
   loadMetadata,
   apiVersion

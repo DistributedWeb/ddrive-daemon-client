@@ -1,6 +1,6 @@
 const { Command } = require('@oclif/command')
 
-const { HyperdriveClient } = require('../..')
+const { DDriveClient } = require('../..')
 
 const SECOND = 1000
 const MINUTE = SECOND * 60
@@ -13,7 +13,7 @@ class StatusCommand extends Command {
 
   async run () {
     try {
-      const client = new HyperdriveClient()
+      const client = new DDriveClient()
       await client.ready()
       const status = await client.status()
       console.log(`The DDrive daemon is running:`)

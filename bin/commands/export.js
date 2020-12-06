@@ -10,7 +10,7 @@ const pump = require('pump')
 const { flags } = require('@oclif/command')
 
 const DaemonCommand = require('../../lib/cli')
-const { HyperdriveClient } = require('../..')
+const { DDriveClient } = require('../..')
 
 const KEY_FILE_PATH = '.ddrive-export-key'
 

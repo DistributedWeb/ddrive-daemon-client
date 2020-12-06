@@ -1,31 +1,31 @@
 # ddrive-daemon-client
-A Node client library and CLI tool for interacting with the DDrive daemon.
+A Node client library and CLI tool for interacting with the dDrive daemon.
 
-Implements the RPC methods defined in the [`ddrive-schemas`](https://github.com/andrewosh/ddrive-schemas) repo.
+Implements the RPC methods defined in the [`ddrive-schemas`](https://github.com/distributedweb/ddrive-schemas) repo.
 
 ## Installation
 `npm i ddrive-daemon-client --save`
 
 ## Usage
-This module provides both programmatic and CLI access to the [DDrive daemon](https://github.com/andrewosh/ddrive-daemon). For info about how to use the CLI, take a look at README in the daemon repo.
+This module provides both programmatic and CLI access to the [dDrive daemon](https://github.com/distributedweb/ddrive-daemon). For info about how to use the CLI, take a look at README in the daemon repo.
 
 Each client takes an optional gRPC endpoint and access token as constructor arguments:
 ```js
-const { HyperdriveClient } = require('ddrive-daemon-client')
-const client = new HyperdriveClient('localhost:3101', 'your_access_token')
+const { DDriveClient } = require('ddrive-daemon-client')
+const client = new DDriveClient('localhost:3101', 'your_access_token')
 ```
 
 If you're running the client and the daemon on the same machine, the endpoint/token can be read from a common location (by default, `~/.ddrive`). If the arguments are not provided, then they will be read from this file (which is created by the daemon).
 
-All DDrive API methods are accessed through `client.drive`, and all FUSE methods through `client.fuse`.
+All dDrive API methods are accessed through `client.drive`, and all FUSE methods through `client.fuse`.
 
 ## API
-The client exposes a gRPC interface for a) creating and interacting with remote Hyperdrives and b) mounting Hyperdrives as local directories using FUSE.
+The client exposes a gRPC interface for a) creating and interacting with remote dDrives and b) mounting dDrives as local directories using FUSE.
 
-Check out the [daemon tests](https://github.com/andrewosh/ddrive-daemon/blob/ddrive-api/test/ddrive.js) for more example usage.
+Check out the [daemon tests](https://github.com/distributedweb/ddrive-daemon/blob/ddrive-api/test/ddrive.js) for more example usage.
 
 ### DDrive
-The client's DDrive API is designed to mirror the methods in DDrive as closely as possible.
+The client's dDrive API is designed to mirror the methods in dDrive as closely as possible.
 
 All drive commands can be found through the `client.drives` object.
 
@@ -33,21 +33,21 @@ All drive commands can be found through the `client.drives` object.
 Operations to manage sessions or get more general information about the state of the daemon.
 
 ##### `const drive = await client.drive.get(opts)`
-Creates a DDrive using the provided drive options (if one has not previously been created), then opens a session for that drive.
+Creates a dDrive using the provided drive options (if one has not previously been created), then opens a session for that drive.
 
 Options can include:
-- `key`: The key of an existing DDrive
+- `key`: The key of an existing dDrive
 - `version`: The version of the drive (this will create a checkout).
 - `hash`: A root tree hash that will be used for validation (_Note: currently unimplemented_).
 
 Returns:
-- `drive`: A remote DDrive instance that can be used for subsequent drive-specific commands.
+- `drive`: A remote dDrive instance that can be used for subsequent drive-specific commands.
    
 ##### `const allStats = await client.drive.allStats()`
 Get networking statistics for all drives being actively managed by the daemon. The returned object is a list of stats results of the form described below.
    
 #### Drive-specific Operations
-Each of the following is not a DDrive method, but applies only to a single session.
+Each of the following is not a dDrive method, but applies only to a single session.
 
 ##### `await drive.close()`
 Close a remote drive's underlying session.
@@ -75,11 +75,11 @@ Options include:
 ```
 
 #### DDrive Methods
-The client currently only supports a subset of the DDrive API. We're actively working on extending this (targeting complete parity)! Each method's options mirror those in the [ddrive module](https://github.com/distributedweb/ddrive).
+The client currently only supports a subset of the dDrive API. We're actively working on extending this (targeting complete parity)! Each method's options mirror those in the [ddrive module](https://github.com/distributedweb/ddrive).
 
-Each method returns a Promise, but can optionally take a callback (to more accurately reflect the DDrive API).
+Each method returns a Promise, but can optionally take a callback (to more accurately reflect the dDrive API).
 
-Method arguments take the same form as those in DDrive. The following methods are supported as of now:
+Method arguments take the same form as those in dDrive. The following methods are supported as of now:
 
 1. `drive.createWriteStream(path, opts)`
 2. `drive.writeFile(path, content, cb(err))`
@@ -100,7 +100,7 @@ Method arguments take the same form as those in DDrive. The following methods ar
 17. `drive.updateMetadata(path, metadata, cb(err))`
 18. `drive.deleteMetadata(path, metadata, cb(err))`
 19. `drive.fileStats(name, cb(err, stats))`
-20. `drive.checkout(version)` // Returns a new `RemoteHyperdrive` instance for the checkout.
+20. `drive.checkout(version)` // Returns a new `RemoteDDrive` instance for the checkout.
 
 ### FUSE
 The client library also provides programmatic access to the daemon's FUSE interface.
@@ -110,7 +110,7 @@ All FUSE commands can be found on the `client.fuse` object.
 ##### `client.fuse.mount(mnt, opts, cb)`
 Mount either the root drive (if `/mnt` is not specified), or a subdirectory within the root drive.
 - `mnt`: The mountpoint of the drive (currently enforced to be `~/DDrive` if it's the root drive, and a subdirectory within `~/DDrive` otherwise.
-- `opts`: DDrive mount options (identical to those in DDrive).
+- `opts`: dDrive mount options (identical to those in dDrive).
 
 ##### `client.fuse.unmount(mnt, cb)`
 Unmounts either a subdrive, or the root drive if `mnt` is not specified.
@@ -142,7 +142,7 @@ This message will be delivered with best-effort, but if the remote peer is not s
 ##### `topicHandle.on('close', ...)`
 Emitted when the topic stream has closed.
 
-You can check out the internals in the [peersockets repo](https://github.com/andrewosh/peersockets).
+You can check out the internals in the [peersockets repo](https://github.com/distributedweb/peersockets).
 
 ### Peers
 `client.peers` allows you to get information about currently-connected peers.

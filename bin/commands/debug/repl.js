@@ -3,7 +3,7 @@ const path = require('path')
 const { Command } = require('@oclif/command')
 
 const { storage } = require('../../../lib/constants')
-const { HyperdriveClient } = require('../../..')
+const { DDriveClient } = require('../../..')
 
 class DebugReplCommand extends Command {
   static usage = 'repl'
@@ -11,7 +11,7 @@ class DebugReplCommand extends Command {
 
   async run () {
     const self = this
-    const client = new HyperdriveClient()
+    const client = new DDriveClient()
     await client.ready()
     client.debug.repl()
   }
